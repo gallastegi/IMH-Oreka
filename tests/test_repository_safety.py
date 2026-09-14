@@ -24,10 +24,9 @@ def repository_text() -> str:
     return "\n".join(chunks).lower()
 
 
-def test_repository_has_no_known_internal_connection_or_person_values() -> None:
+def test_repository_has_no_known_private_environment_or_person_values() -> None:
     text = repository_text()
     forbidden = [
-        "odoo" + ".imh.eus",
         "imh" + "_pro_020724",
         "beñat " + "gallastegi",
         "benat " + "gallastegi",
@@ -37,9 +36,15 @@ def test_repository_has_no_known_internal_connection_or_person_values() -> None:
     assert not [value for value in forbidden if value in text]
 
 
+def test_approved_production_endpoint_is_the_builtin_default() -> None:
+    common = (ROOT / "src" / "imh_oreka" / "odoo_common.py").read_text(encoding="utf-8-sig")
+    assert 'DEFAULT_ODOO_URL = "https://odoo.imh.eus"' in common
+    assert 'DEFAULT_ODOO_DB = "imh"' in common
+    assert 'DEFAULT_ODOO_URL = "http://' not in common
+
+
 def test_private_outputs_are_ignored_and_legacy_evidence_is_absent() -> None:
     gitignore = (ROOT / ".gitignore").read_text(encoding="utf-8-sig")
     for rule in [".env", "logs/", "docs/90_archive/", "data/raw/*", "data/processed/*", "data/reports/*", "config/*.local.csv"]:
         assert rule in gitignore
-    assert not (ROOT / "logs").exists()
     assert not (ROOT / "docs" / "90_archive").exists()

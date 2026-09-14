@@ -25,7 +25,14 @@ SRC_DIR = ROOT_DIR / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-from imh_oreka.odoo_common import OdooClient, save_csv, save_json, valid_fields  # noqa: E402
+from imh_oreka.odoo_common import (  # noqa: E402
+    DEFAULT_ODOO_DB,
+    DEFAULT_ODOO_URL,
+    OdooClient,
+    save_csv,
+    save_json,
+    valid_fields,
+)
 from imh_oreka import operational_performance as op  # noqa: E402
 from imh_oreka import planning_data as planning_pipeline  # noqa: E402
 from imh_oreka.planning_data import duration_hhmm_to_hours, hours_to_duration_hhmm, safe_parse_many2one, to_float  # noqa: E402
@@ -4821,8 +4828,8 @@ def odoo_connection_form() -> tuple[str, str, str, str]:
     lang = current_language()
     private = parse_private_env()
     defaults = {
-        "url": os.getenv("ODOO_URL") or private.get("ODOO_URL") or "",
-        "db": os.getenv("ODOO_DB") or private.get("ODOO_DB") or "",
+        "url": os.getenv("ODOO_URL") or private.get("ODOO_URL") or DEFAULT_ODOO_URL,
+        "db": os.getenv("ODOO_DB") or private.get("ODOO_DB") or DEFAULT_ODOO_DB,
         "user": os.getenv("ODOO_USER") or private.get("ODOO_USER") or "",
         "password": st.session_state.get("odoo_password", os.getenv("ODOO_PASSWORD") or private.get("ODOO_PASSWORD") or ""),
     }

@@ -42,16 +42,16 @@ Copy-Item .env.example .env
 
 Edita `.env` localmente. No se versiona. Para PRC-01 puedes tomar como referencia `config/prc01_scope.example.env`.
 
-Ejemplo de conexión (sustituye todos los valores localmente):
+La URL y la base de datos corporativas ya vienen configuradas. Solo debes completar el usuario y la contraseña localmente:
 
 ```text
-ODOO_URL=https://odoo.example.invalid
-ODOO_DB=nombre_base_datos
-ODOO_USER=usuario@example.invalid
-ODOO_PASSWORD=secreto_local
+ODOO_URL=https://odoo.imh.eus
+ODOO_DB=imh
+ODOO_USER=
+ODOO_PASSWORD=
 ```
 
-No incluyas URLs internas, credenciales, nombres de personas, exportaciones ni informes reales en Git. Usa archivos `config/*.local.csv` para valores privados.
+No incluyas credenciales, nombres de personas, exportaciones ni informes reales en Git. Usa archivos `config/*.local.csv` para valores privados.
 
 ## Extraccion anual de horas reales
 
@@ -79,6 +79,16 @@ streamlit run apps\streamlit\prc01_horas_imputadas.py
 ```
 
 El dashboard actual mantiene la logica existente y lee `data/processed/16_prc01_actuals_annual_detail.csv`.
+
+## Aplicación Windows
+
+Para construir la distribución ejecutable:
+
+```powershell
+.\build_windows.ps1
+```
+
+El resultado queda en `dist\IMH-Oreka\IMH-Oreka.exe`. La carpeta completa `dist\IMH-Oreka` es la aplicación distribuible: el ejecutable abre automáticamente el navegador, con la URL `https://odoo.imh.eus` y la base `imh` ya cargadas. Usuario y contraseña nunca se incorporan al ejecutable.
 
 ## Informes de planificación
 

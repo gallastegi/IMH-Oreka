@@ -15,6 +15,9 @@ from dotenv import load_dotenv
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 load_dotenv(PROJECT_ROOT / ".env")
 
+DEFAULT_ODOO_URL = "https://odoo.imh.eus"
+DEFAULT_ODOO_DB = "imh"
+
 DATA_DIR = PROJECT_ROOT / "data"
 DATA_RAW_DIR = DATA_DIR / "raw"
 DATA_PROCESSED_DIR = DATA_DIR / "processed"
@@ -34,8 +37,8 @@ def get_env(name: str, default: str | None = None, required: bool = False) -> st
     return value or ""
 
 
-ODOO_URL = get_env("ODOO_URL", "").rstrip("/")
-ODOO_DB = get_env("ODOO_DB", "")
+ODOO_URL = get_env("ODOO_URL", DEFAULT_ODOO_URL).rstrip("/")
+ODOO_DB = get_env("ODOO_DB", DEFAULT_ODOO_DB)
 ODOO_USER = get_env("ODOO_USER", "")
 ODOO_PASSWORD = get_env("ODOO_PASSWORD", "")
 ODOO_LIMIT = int(get_env("ODOO_LIMIT", "30"))

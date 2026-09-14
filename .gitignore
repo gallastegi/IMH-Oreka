@@ -5,6 +5,8 @@
 .venv/
 venv/
 ENV/
+build/
+dist/
 
 # Python cache
 __pycache__/
@@ -29,6 +31,7 @@ config/private/
 *.pem
 *.key
 *.pfx
+*.exe
 
 # Legacy/generated output folders
 outputs/
@@ -36,6 +39,7 @@ odoo_exploration_pack/
 
 # Local tooling
 .pytest_cache/
+.pytest_tmp*/
 .mypy_cache/
 .ruff_cache/
 .streamlit/secrets.toml
