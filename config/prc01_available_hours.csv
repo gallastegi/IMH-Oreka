@@ -1,0 +1,4 @@
+year;month;month_name;scope_type;scope_key;scope_name;available_hours;active;comment;updated_by;updated_at
+2026;1;Urtarrila;company;empresa;Empresa;0;TRUE;Ejemplo sin datos reales;;
+2026;1;Urtarrila;department;departamento-demo;Departamento de ejemplo;0;TRUE;Ejemplo sin datos reales;;
+2026;1;Urtarrila;person;persona-ejemplo;Persona Ejemplo;0;TRUE;Registro ficticio;;

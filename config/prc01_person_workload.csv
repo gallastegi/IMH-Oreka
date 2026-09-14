@@ -1,0 +1,2 @@
+person_key;person_name;year;month;workload_factor;weekly_hours;active;comment;updated_by;updated_at
+persona-ejemplo;Persona Ejemplo;2026;1;1.0;40.0;TRUE;Registro ficticio;;

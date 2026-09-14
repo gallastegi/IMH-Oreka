@@ -1,0 +1,2 @@
+project_id;project_name;task_id;task_name;grupo_actividad;subgrupo;active;review_status;comment;reviewed_by;reviewed_at
+DEMO-001;Proyecto de ejemplo;TASK-001;Tarea de ejemplo;Proiektuak;;TRUE;example;Registro ficticio;;

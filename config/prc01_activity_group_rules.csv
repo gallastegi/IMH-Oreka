@@ -1,0 +1,5 @@
+priority;grupo_actividad;field;contains;comment
+10;Orokorrak;all_text;Ausencia;Ejemplo genérico de ausencia
+20;Formakuntza;all_text;Formación;Ejemplo genérico de formación
+30;Proiektuak;all_text;Proyecto;Ejemplo genérico de proyecto
+999;Pendiente de clasificar;all_text;;Regla final por defecto

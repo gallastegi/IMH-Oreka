@@ -1,0 +1,5 @@
+rule_id;priority;active;project_contains;task_contains;department_contains;person_contains;unidad_destino;naturaleza_trabajo;notes;updated_at
+R001;10;TRUE;Proyecto formativo;Docencia;;;ingeniaritza;directo;Ejemplo genérico de trabajo directo;
+R002;20;TRUE;Proyecto técnico;Desarrollo;;;proiektu_zerbitzu_teknikoak;directo;Ejemplo genérico de proyecto;
+R003;30;TRUE;Proyecto interno;Administración;;;pertsonak_antolaketa;indirecto;Ejemplo genérico de trabajo indirecto;
+R999;9999;TRUE;;;;;pendiente;pendiente;Regla final pendiente de clasificar;

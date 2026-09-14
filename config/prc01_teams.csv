@@ -1,0 +1,3 @@
+team_id;team_name;employee_name;employee_alias;active;comment
+all;Empresa completa;;;TRUE;Todas las personas
+team-demo;Equipo de ejemplo;Persona Ejemplo;Persona Ejemplo;TRUE;Registro ficticio

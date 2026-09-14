@@ -1,0 +1,47 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Generated data with Odoo extracts or derived reports
+data/raw/*
+data/processed/*
+data/reports/*
+data/planning/prc01_planning_lines.csv
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/reports/.gitkeep
+
+# Private organization configuration
+config/*.local.csv
+config/private/
+*.sqlite
+*.sqlite-journal
+*.db
+*.pem
+*.key
+*.pfx
+
+# Legacy/generated output folders
+outputs/
+odoo_exploration_pack/
+
+# Local tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.streamlit/secrets.toml
+
+# Registros temporales de ejecucion
+logs/
+docs/90_archive/
+data/raw/audit/
+data/processed/audit/
