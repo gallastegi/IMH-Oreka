@@ -139,6 +139,16 @@ def test_streamlit_planning_loader_uses_only_processed_odoo_dataset() -> None:
     assert "PLN002" not in source
 
 
+def test_clean_install_planning_template_contains_required_coverage_dates() -> None:
+    module = load_streamlit_app_module("imh_oreka_clean_template_test")
+    template = module.read_planning_csv(ROOT / "data" / "planning" / "prc01_planning_template.csv")
+    validated, errors = module.validate_planning_df(template)
+    assert not errors
+    assert {"date_start", "date_end"}.issubset(validated.columns)
+    assert validated.loc[0, "date_start"] == "2026-01-01"
+    assert validated.loc[0, "date_end"] == "2026-01-31"
+
+
 def test_connection_download_summary_formats_validated_result() -> None:
     module = load_streamlit_app_module("prc01_app_summary_test")
     download = {

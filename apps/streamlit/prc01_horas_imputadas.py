@@ -207,6 +207,8 @@ PLANNING_COLUMNS = [
     "source_model",
     "source_id",
     "source_name",
+    "date_start",
+    "date_end",
     "year",
     "month",
     "person_key",
