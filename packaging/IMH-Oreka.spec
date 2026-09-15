@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from PyInstaller.utils.hooks import collect_all
+from PyInstaller.utils.hooks import collect_all, collect_submodules
 
 
 ROOT = Path(SPECPATH).resolve().parent
@@ -18,6 +18,10 @@ for package in ("streamlit", "plotly"):
     datas += package_datas
     binaries += package_binaries
     hiddenimports += package_hiddenimports
+
+# The Streamlit entrypoint is shipped as data and imported at runtime, so
+# PyInstaller cannot discover the application package through static analysis.
+hiddenimports += collect_submodules("imh_oreka")
 
 a = Analysis(
     [str(ROOT / "packaging" / "imh_oreka_launcher.py")],

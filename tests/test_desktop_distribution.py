@@ -29,5 +29,7 @@ def test_launcher_selects_an_available_local_port() -> None:
 
 
 def test_windows_build_definition_is_versioned() -> None:
-    assert (ROOT / "packaging" / "IMH-Oreka.spec").exists()
+    build_spec = ROOT / "packaging" / "IMH-Oreka.spec"
+    assert build_spec.exists()
     assert (ROOT / "build_windows.ps1").exists()
+    assert 'collect_submodules("imh_oreka")' in build_spec.read_text(encoding="utf-8")
