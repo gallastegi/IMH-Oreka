@@ -90,6 +90,14 @@ Para construir la distribución ejecutable:
 
 El resultado queda en `dist\IMH-Oreka\IMH-Oreka.exe`. La carpeta completa `dist\IMH-Oreka` es la aplicación distribuible: el ejecutable abre automáticamente el navegador, con la URL `https://odoo.imh.eus` y la base `imh` ya cargadas. Usuario y contraseña nunca se incorporan al ejecutable.
 
+Los informes generados se guardan fuera del programa, en una ubicación accesible y persistente:
+
+```text
+C:\Users\<usuario>\Documents\IMH-Oreka\informes
+```
+
+Las carpetas `planificacion`, `analisis` y `rendimiento_operativo` separan cada tipo de informe. La ubicación base puede cambiarse con `IMH_OREKA_OUTPUT_DIR` en el archivo `.env` local.
+
 ## Informes de planificación
 
 Los paquetes HTML de planificación pueden incluir un informe por persona. Cada informe muestra, además del resumen y los gráficos, un desglose legible por proyecto con cada tarea concreta y sus horas asignadas en el periodo. El paquete también incorpora `project_task_assignments.csv` para poder revisar o reutilizar ese detalle.

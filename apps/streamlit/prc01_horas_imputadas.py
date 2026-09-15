@@ -36,15 +36,16 @@ from imh_oreka.odoo_common import (  # noqa: E402
 from imh_oreka import operational_performance as op  # noqa: E402
 from imh_oreka import planning_data as planning_pipeline  # noqa: E402
 from imh_oreka.planning_data import duration_hhmm_to_hours, hours_to_duration_hhmm, safe_parse_many2one, to_float  # noqa: E402
+from imh_oreka.user_paths import user_reports_directory  # noqa: E402
 
 
 DATA_RAW_DIR = ROOT_DIR / "data" / "raw"
 DATA_PROCESSED_DIR = ROOT_DIR / "data" / "processed"
-DATA_REPORTS_DIR = ROOT_DIR / "data" / "reports"
-ANALYSIS_REPORTS_DIR = DATA_REPORTS_DIR / "prc01_analysis_reports"
-PLANNING_REPORTS_DIR = DATA_REPORTS_DIR / "prc01_planning_reports"
+DATA_REPORTS_DIR = user_reports_directory()
+ANALYSIS_REPORTS_DIR = DATA_REPORTS_DIR / "analisis"
+PLANNING_REPORTS_DIR = DATA_REPORTS_DIR / "planificacion"
 OPERATIONAL_PROCESSED_FILE = DATA_PROCESSED_DIR / "18_prc01_operational_performance_detail.csv"
-OPERATIONAL_REPORTS_DIR = DATA_REPORTS_DIR / "prc01_operational_performance_reports"
+OPERATIONAL_REPORTS_DIR = DATA_REPORTS_DIR / "rendimiento_operativo"
 CONFIG_DIR = ROOT_DIR / "config"
 LOGS_DIR = ROOT_DIR / "logs"
 DATA_FILE = DATA_PROCESSED_DIR / "16_prc01_actuals_annual_detail.csv"
